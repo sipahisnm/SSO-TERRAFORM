@@ -23,6 +23,17 @@ provider "aws" {
   profile = var.profile
 }
 
+/** # Backend that stores the state file in S3 
+terraform {
+  backend "s3" {
+    bucket = "mybucket-sinem-backend"
+    key    = "path"
+    region = "us-east-1"
+    profile = "default"
+  }
+}
+**/
+
 data "aws_caller_identity" "current" {}
 
 output "account_id" {
